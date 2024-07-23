@@ -3,9 +3,14 @@
 using DAL;
 using Entities.Models;
 using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 //CreateAsync().GetAwaiter().GetResult();
-RetrieveAsync().GetAwaiter().GetResult();
+//RetrieveAsync().GetAwaiter().GetResult();
+UpdateAsync().GetAwaiter().GetResult();
+
+
+Console.ReadKey();
 
 
 static async Task CreateAsync()
@@ -52,6 +57,44 @@ static async Task RetrieveAsync()
         {
 
             Console.WriteLine($"Error: {ex.Message}");
+        }
+    }
+}
+static async Task UpdateAsync()
+
+{
+    // supuesto: Existe el objeto a modificar 
+
+    using (var repository = RepositoryFactory.CreateRepository())
+    {
+
+        var customerToUpdate = await repository.RetrieveAsync<Customer>(c => c.Id == 78);
+
+        if (customerToUpdate != null)
+        {
+            customerToUpdate.FirstName = "Liu";
+            customerToUpdate.LastName = "Wong";
+            customerToUpdate.City = "Toronto";
+            customerToUpdate.Country = "Canada";
+            customerToUpdate.Phone = "+14337 6353039";
+        }
+
+        try
+        {
+            bool updated = await repository.UpdateAsync(customerToUpdate);
+            if (updated)
+            {
+                Console.WriteLine("customer updated Successfully. ");
+            }
+            else
+            {
+                Console.WriteLine("customer updated failed");
+            }
+        }
+
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error {ex.Message}");
         }
     }
 }
