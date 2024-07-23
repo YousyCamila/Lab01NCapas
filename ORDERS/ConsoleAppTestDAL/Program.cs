@@ -8,7 +8,8 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 //CreateAsync().GetAwaiter().GetResult();
 //RetrieveAsync().GetAwaiter().GetResult();
 //UpdateAsync().GetAwaiter().GetResult();
-FilterAsync().GetAwaiter().GetResult();
+//FilterAsync().GetAwaiter().GetResult();
+//DeleteAsync().GetAwaiter().GetResult();
 
 
 Console.ReadKey();
@@ -113,5 +114,22 @@ static async Task FilterAsync()
         }
     }
 
+
+}
+static async Task DeleteAsync()
+
+{
+    using (var repository = RepositoryFactory.CreateRepository())
+    {
+        Expression<Func<Customer, bool>> criteria = customer => customer.Id == 93;
+        var customerToDelete = await repository.RetrieveAsync(criteria);
+        if (customerToDelete != null)
+
+        {
+            bool deleted = await repository.DeleteAsync (customerToDelete);
+            Console.WriteLine(deleted ? "Customer Deleted successfully.": "Failed to delete customer");
+        }
+
+    }
 
 }
