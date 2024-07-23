@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Entities.Models;
+using System.Linq.Expressions;
 
 namespace BLL
 {
@@ -48,5 +49,20 @@ namespace BLL
                 return customer;
             }
         }
+
+        public async Task<List<Customer>> RetrieveAllAsync()
+        {
+            List<Customer> Result = null;
+
+            using (var r = RepositoryFactory.CreateRepository())
+            {
+                // Define el criterio de filtro para obtener todos los clientes.
+                Expression<Func<Customer, bool>> allCustomersCriteria = x => true;
+                Result = await r.FilterAsync<Customer>(allCustomersCriteria);
+            }
+
+            return Result;
+        }
+
     }
 }
