@@ -111,9 +111,32 @@ namespace Services.Controllers
         }
 
 
-        public Task<IActionResult> UpdateAsync(int id, [FromBody] Customer toUpdate)
+        // PUT api/<CustomerController>/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateAsync(int id, [FromBody] Customer toUpdate)
         {
-            throw new NotImplementedException();
+            // Asigna el ID recibido en la URL al objeto a actualizar
+            toUpdate.Id = id;
+
+            try
+            {
+                var result = await _bll.UpdateAsync(toUpdate);
+                if (!result)
+                {
+                    return NotFound("Customer not found or update failed."); // Mensaje informativo para actualizaciones fallidas
+                }
+                return NoContent(); // Se utiliza NoContent para actualizaciones exitosas sin contenido que devolver
+            }
+            catch (CustomerExceptions ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Lograr la excepción
+                return StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.");
+            }
         }
+
     }
 }
