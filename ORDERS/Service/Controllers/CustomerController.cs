@@ -65,10 +65,26 @@ namespace Services.Controllers
         }
 
 
-        public Task<ActionResult<List<Customer>>> GetAll()
+        // GET: api/<CustomerController>
+        [HttpGet]
+        public async Task<ActionResult<List<Customer>>> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await _bll.RetrieveAllAsync();
+                return Ok(result); // Use IActionResult for more flexibility (200 OK)
+            }
+            catch (CustomerExceptions ex) // Catch specific business logic exceptions
+            {
+                return BadRequest(ex.Message); // Return 400 Bad Request with error message
+            }
+            catch (Exception ex) // Catch unhandled exceptions for logging and generic error response
+            {
+                // Log the exception
+                return StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.");
+            }
         }
+
 
         public Task<ActionResult<Customer>> RetrieveAsync(int id)
         {
