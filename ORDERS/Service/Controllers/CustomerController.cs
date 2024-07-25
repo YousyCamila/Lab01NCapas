@@ -40,10 +40,30 @@ namespace Services.Controllers
         }
 
 
-        public Task<IActionResult> DeleteAsync(int id)
+        // DELETE api/<CustomerController>/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await _bll.DeleteAsync(id);
+                if (!result)
+                {
+                    return NotFound("Customer not found or deletion failed."); // Informative message for unsuccessful deletion
+                }
+                return NoContent(); // Use NoContent for successful deletions with no content to return
+            }
+            catch (CustomerExceptions ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                return StatusCode(StatusCodes.Status500InternalServerError, "An unexpected error occurred.");
+            }
         }
+
 
         public Task<ActionResult<List<Customer>>> GetAll()
         {
