@@ -1,4 +1,4 @@
-namespace Services
+namespace Service
 {
     public class WeatherForecast
     {
