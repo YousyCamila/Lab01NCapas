@@ -1,12 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using ProxyServer;
 
 namespace WebApplicationOrders.Controllers
 {
     public class CustomersController : Controller
     {
-        public IActionResult Index()
+        private readonly CustomerProxy _proxy;
+
+        public CustomersController()
         {
-            return View();
+            this._proxy = new CustomerProxy();
+
+        }
+        public async Task<IActionResult> Index()
+
+        {
+            var customers = await _proxy.GetAllAsync();
+            return View(customers);
         }
     }
 }
