@@ -12,6 +12,6 @@ namespace ProxyServer
         Task<Customer> CreateAsync(Customer customer);
        Task<bool> DeleteAsync(int id);
 
- 
+        Task<List<Customer>> GetAllAsync();
     }
 }
