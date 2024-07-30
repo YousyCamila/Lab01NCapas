@@ -14,5 +14,6 @@ namespace ProxyServer
 
         Task<List<Customer>> GetAllAsync();
         Task<Customer> GetByIdAsync(int id);
+        Task<bool> UpdateAsync(int id, Customer customer);
     }
 }
