@@ -45,8 +45,7 @@ namespace ProxyServer
         }
 
 
-        public Task<bool> DeleteAsync(int id)
-        {
+       
             public async Task<bool> DeleteAsync(int id)
             {
                 try
@@ -63,7 +62,7 @@ namespace ProxyServer
                 }
             }
 
-        }
+        
 
         public async Task<List<Customer>> GetAllAsync()
         {
