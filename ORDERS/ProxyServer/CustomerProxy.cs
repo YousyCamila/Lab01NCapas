@@ -47,7 +47,22 @@ namespace ProxyServer
 
         public Task<bool> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            public async Task<bool> DeleteAsync(int id)
+            {
+                try
+                {
+                    var response = await _httpClient.DeleteAsync($"{id}");
+                    return response.IsSuccessStatusCode;
+                }
+                catch (global::System.Exception ex)
+                {
+                    // throw;
+                    // Manejar la exepcion (e.g., logging)
+                    Console.WriteLine($"Error: {ex.Message}");
+                    return false;
+                }
+            }
+
         }
 
         public async Task<List<Customer>> GetAllAsync()
