@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCL", "SCL\SCL.csproj", "{096F2BE7-6B63-4E92-A1D7-44E3A50D7268}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{94D6C24B-2B85-423A-9EA1-C4D794550882}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{94D6C24B-2B85-423A-9EA1-C4D794550882}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyServer", "ProxyServer\ProxyServer.csproj", "{33BB3C0B-CAE7-447F-81E0-496451F63B4F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{94D6C24B-2B85-423A-9EA1-C4D794550882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94D6C24B-2B85-423A-9EA1-C4D794550882}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94D6C24B-2B85-423A-9EA1-C4D794550882}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33BB3C0B-CAE7-447F-81E0-496451F63B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33BB3C0B-CAE7-447F-81E0-496451F63B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33BB3C0B-CAE7-447F-81E0-496451F63B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33BB3C0B-CAE7-447F-81E0-496451F63B4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
