@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProxyServer
 {
-    internal interface ICustomerProxy
+    public interface ICustomerProxy
     {
+        Task<Customer> CreateAsync(Customer customer);
+       Task<bool> DeleteAsync(int id);
+
+ 
     }
 }
