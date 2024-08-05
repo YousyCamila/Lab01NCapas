@@ -1,6 +1,3 @@
-﻿using Entities.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -45,7 +42,7 @@ namespace ProxyServer
         }
 
 
-       
+        
             public async Task<bool> DeleteAsync(int id)
             {
                 try
@@ -127,4 +124,5 @@ namespace ProxyServer
 
     }
 }
+
 
