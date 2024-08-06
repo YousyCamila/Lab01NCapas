@@ -1,7 +1,7 @@
-﻿@model List<Entities.Models.Customer>
+﻿@Model List<Entities.Models.Customer>
 
 @{
-    ViewData["Title"] = "Customers";
+    ViewData["Title"] = "Customer List";
 }
 
 <h1> Customer List  </h1>
@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"> </i>&nbsp Create Customer</a>
 </p>
-<table class = "table">
+<table class="table">
     <thead>
         <tr>
             <th>ID</th>
@@ -23,7 +23,6 @@
     </thead>
 
     <tbody>
-
         @foreach (var item in Model)
         {
             <tr>
@@ -41,6 +40,7 @@
                 </td>
             </tr>
         }
+
 
     </tbody>
 </table>

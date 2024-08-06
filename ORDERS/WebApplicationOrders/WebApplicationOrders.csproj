@@ -11,4 +11,8 @@
     <ProjectReference Include="..\ProxyServer\ProxyServer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Customers\" />
+  </ItemGroup>
+
 </Project>
