@@ -9,9 +9,10 @@ namespace WebApplicationOrders.Controllers
     {
         private readonly ProductProxy _proxy;
 
-        public ProductController()
+        // Inyectar ProductProxy a través del constructor
+        public ProductController(ProductProxy proxy)
         {
-            this._proxy = new ProductProxy();
+            _proxy = proxy;
         }
 
         public async Task<IActionResult> Index()
