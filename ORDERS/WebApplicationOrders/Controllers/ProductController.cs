@@ -9,11 +9,11 @@ namespace WebApplicationOrders.Controllers
     {
         private readonly ProductProxy _proxy;
 
-        // Inyectar ProductProxy a través del constructor
-        public ProductController(ProductProxy proxy)
+        public ProductController()
         {
-            _proxy = proxy;
+            this._proxy = new ProductProxy();
         }
+
 
         public async Task<IActionResult> Index()
         {
@@ -29,7 +29,7 @@ namespace WebApplicationOrders.Controllers
         // POST: Product/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Price")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,ProductName,UnitPrice,Package,IsDiscontinued,SupplierId")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace WebApplicationOrders.Controllers
         // POST: Product/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProductName,SupplierId,UnitPrice,Package,IsDiscontinued")] Product product)
         {
             if (id != product.Id)
             {

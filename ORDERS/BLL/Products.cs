@@ -65,7 +65,7 @@ namespace BLL
             return result;
         }
 
-        public async Task<bool> UpdateAsync(Product product)
+        public async Task<bool> UpdateAsync( Product product)
         {
             bool result = false;
             using (var repository = RepositoryFactory.CreateRepository())
