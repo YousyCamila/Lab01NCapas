@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
     <ProjectReference Include="..\Entities\Entities.csproj" />
+    <ProjectReference Include="..\ProxyServer\ProxyServer.csproj" />
     <ProjectReference Include="..\SCL\SCL.csproj" />
   </ItemGroup>
 

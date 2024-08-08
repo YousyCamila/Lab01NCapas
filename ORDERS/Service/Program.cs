@@ -1,9 +1,10 @@
-using BLL;
+using BLL; // Asegúrate de tener la referencia correcta a tu proyecto BLL
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddTransient<Customers>();
+builder.Services.AddTransient<Customers>(); // Registro de Customer
+builder.Services.AddTransient<Products>();  // Registro de Product
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -36,4 +37,3 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
-
