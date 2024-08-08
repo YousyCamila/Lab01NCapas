@@ -1,6 +1,7 @@
 ﻿using BLL;
 using Entities.Models;
 using Microsoft.AspNetCore.Http;
+using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using SCL;
 
@@ -82,7 +83,7 @@ namespace Service.Controllers
         }
 
         // GET api/<ProductController>/5
-        [HttpGet("{id}", Name = "RetrieveAsync")]
+        [HttpGet("{id}", Name = "RetrieveProduct")]
         public async Task<ActionResult<Product>> RetrieveAsync(int id)
         {
             try
