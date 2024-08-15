@@ -1,22 +1,116 @@
+/* General styling for the HTML and body */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+/* Focus states for form elements and links */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Define your pastel color palette */
+:root {
+    --light-pink: #fce4ec; /* Very Soft Pink */
+    --soft-pink: #f6a5b6; /* Soft Pink Pastel */
+    --strong-pink: #f48fb1; /* Stronger Pink for hover */
+    --light-purple: #d1a7f1; /* Light Purple Pastel */
+    --dark-purple: #b08bcf; /* Darker Purple Pastel */
+    --text-color: #000000; /* Black text */
+}
+
+/* General button styling */
+button, .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color); /* Black text */
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 0 10px;
+    border: none; /* Remove default border */
+}
+
+/* Override Bootstrap button styles with pastel colors */
+.btn-primary {
+    background-color: var(--light-purple) !important; /* Light Purple Pastel */
+    border-color: var(--light-purple) !important;
+}
+
+    .btn-primary:hover {
+        background-color: var(--dark-purple) !important; /* Darker Purple for hover */
+        border-color: var(--dark-purple) !important;
+    }
+
+    .btn-primary:active {
+        background-color: var(--dark-purple) !important; /* Darker Purple for active state */
+        border-color: var(--dark-purple) !important;
+    }
+
+.btn-secondary {
+    background-color: var(--soft-pink) !important; /* Soft Pink Pastel */
+    border-color: var(--soft-pink) !important;
+}
+
+    .btn-secondary:hover {
+        background-color: var(--strong-pink) !important; /* Stronger Pink for hover */
+        border-color: var(--strong-pink) !important;
+    }
+
+    .btn-secondary:active {
+        background-color: var(--strong-pink) !important; /* Stronger Pink for active state */
+        border-color: var(--strong-pink) !important;
+    }
+
+/* Hover and active states */
+.btn:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+/* Background for the entire page */
+body {
+    background-color: var(--light-pink); /* Very Soft Pink Background */
+    color: var(--text-color); /* Black text color */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Ensure consistent font */
+}
+
+/* Ensure text color in headings and paragraphs is readable */
+h1, h2, h3, h4, h5, h6, p {
+    color: var(--text-color); /* Black text for headings and paragraphs */
+}
+
+/* Style for form controls */
+input, textarea, select {
+    border: 2px solid var(--text-color); /* Thicker border for input fields */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+    input:focus, textarea:focus, select:focus {
+        border-color: var(--strong-pink); /* Change border color on focus */
+        outline: none;
+    }

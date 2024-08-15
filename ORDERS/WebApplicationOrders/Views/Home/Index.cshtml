@@ -2,7 +2,54 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    .button-container {
+        margin-top: 20px;
+    }
+
+    .custom-button {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+        margin: 0 10px;
+    }
+
+    .custom-button.product {
+        background-color: #b39ddb; /* Purple Pastel */
+    }
+
+    .custom-button.customer {
+        background-color: #f48fb1; /* Pink Pastel */
+    }
+
+    .custom-button.supplier {
+            background-color: #a3c2e7; /* White */
+        color: #000000; /* Black text */
+    }
+
+    .custom-button:hover {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+
+    .custom-button:active {
+        opacity: 0.6;
+    }
+</style>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    <div class="button-container">
+        <a href="@Url.Action("Index", "Product")" class="custom-button product">Product</a>
+        <a href="@Url.Action("Index", "Customer")" class="custom-button customer">Customer</a>
+        <a href="@Url.Action("Index", "Supplier")" class="custom-button supplier">Supplier</a>
+    </div>
 </div>
